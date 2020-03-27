@@ -73,6 +73,7 @@ function writeBullet(filename, bullet) {
   $.ajax({
     url: 'posts/'+filename,
     success: function(data) {
+      console.log('here i should display stuff');
       console.log(data);
       var title = 'untitled';
       var elems_f = filename.split('-');
