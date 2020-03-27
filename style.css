@@ -1,0 +1,77 @@
+body {
+  margin-left: 20%;
+}
+
+@media screen and (max-width: 600px) { 
+  body {
+    margin-left: 1%;
+  }
+}
+
+header {
+  text-align: left; /* */
+  position: relative;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  padding: 0px;
+  width: 70%;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+#title {
+  font-size: 25pt;
+  font-weight: 500;
+  position: absolute;
+  margin-left: 120px;
+  top: 0px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  padding: 0px;
+}
+
+#plan {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  padding: 0px;
+}
+
+ul { /* whole list */
+  border-style: none;
+  border-width: 1px;
+  border-color: black;
+  list-style-type: none; /* no bullets */
+  /*margin: 0; /* above and below the list */
+  padding-left: 20px; 
+  padding-top: 0; 
+  padding-bottom: 0;
+  padding-right: 0;
+}
+
+li { /* list elements, by default no padding no margin */
+  border-style: none;
+  border-width: 1px;
+  border-color: black;
+  width: 200px;
+}
+
+#intro {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  padding: 0px;
+}
+
+
+
+
+
+.hidden {display: none;}
+
+footer {font-size: 12px;}
