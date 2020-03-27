@@ -8,7 +8,7 @@ function generateYear(id) {
 
 function givePostInfoTo(callbackSuccess, callbackFail) {
   $.ajax({
-    url: "/posts/post_index.txt", 
+    url: "posts/post_index.txt", 
     success: function(data) {
       var lines = data.split('\n');
       // extract posts names
@@ -69,7 +69,7 @@ function sortByDate() {;}   // will implement later
 // write bullets for post lists (latest posts, archive)
 function writeBullet(filename, bullet) {
   $.ajax({
-    url: '/posts/'+filename,
+    url: 'posts/'+filename,
     success: function(data) {
       var title = 'untitled';
       var elems_f = filename.split('-');
