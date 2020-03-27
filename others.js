@@ -68,6 +68,8 @@ function sortByDate() {;}   // will implement later
 
 // write bullets for post lists (latest posts, archive)
 function writeBullet(filename, bullet) {
+  var path='posts/'+filename;          //
+  console.log("requesting:",path); //
   $.ajax({
     url: 'posts/'+filename,
     success: function(data) {
