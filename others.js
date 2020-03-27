@@ -73,6 +73,7 @@ function writeBullet(filename, bullet) {
   $.ajax({
     url: 'posts/'+filename,
     success: function(data) {
+      console.log(data);
       var title = 'untitled';
       var elems_f = filename.split('-');
       var date = elems_f[0]+'-'+elems_f[1]+'-'+elems_f[2];
