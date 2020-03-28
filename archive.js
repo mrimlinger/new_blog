@@ -6,16 +6,16 @@ function generateArchive(filenames) {
   var display = document.getElementById('archive_display'); // get display div (part meant to be filled)
   if (nbr_posts==0) {
     var empty_p = document.createElement('p');
-    var empty_txt = document.createTextNode("This blog currently has no posts.");
-    empty_p.appendChild(empty_txt);
+    var empty_txtNode = document.createTextNode("This blog currently has no posts.");
+    empty_p.appendChild(empty_txtNode);
     display.appendChild(empty_p);
     return;
   }
   current_year = filenames[0].split('-')[0];
   // add first h3 + sublist
   var year_title = document.createElement('h3');
-  var year_title_txt = document.createTextNode(current_year);
-  year_title.appendChild(year_title_txt);
+  var year_title_txtNode = document.createTextNode(current_year);
+  year_title.appendChild(year_title_txtNode);
   display.appendChild(year_title);
   // add first sublist with first bullet
   var year_list = document.createElement('ul');
@@ -26,8 +26,8 @@ function generateArchive(filenames) {
       // add h3 + sublist
       current_year = filenames[i].split('-')[0];
       year_title = document.createElement('h3');
-      year_title_txt = document.createTextNode(current_year);
-      year_title.appendChild(year_title_txt);
+      year_title_txtNode = document.createTextNode(current_year);
+      year_title.appendChild(year_title_txtNode);
       display.appendChild(year_title);
       year_list = document.createElement('ul');
       display.appendChild(year_list); 
@@ -41,8 +41,8 @@ function generateArchive(filenames) {
 
 function generateArchiveFail() {
   var error_p = document.createElement('p');
-  var error_txt = document.createTextNode("Error loading content. Try refreshing the page.");
-  error_p.appendChild(error_txt);
+  var error_txtNode = document.createTextNode("Error loading content. Try refreshing the page.");
+  error_p.appendChild(error_txtNode);
   document.getElementById('archive_display').appendChild(error_p);
   return;
 }

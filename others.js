@@ -7,8 +7,15 @@ function generateYear(id) {
 }
 
 function givePostInfoTo(callbackSuccess, callbackFail) {
+  // must check url first (depending on origin of call)
+  var target_url = "posts/post_index.txt";
+  var curr_url = window.location.href
+  elems = curr_url.split('/');
+  if (elems[elems.length-2]==="posts") {
+    target_url = "post_index.txt";
+  }
   $.ajax({
-    url: "posts/post_index.txt", 
+    url: target_url, 
     success: function(data) {
       var lines = data.split('\n');
       // extract posts names
@@ -16,8 +23,7 @@ function givePostInfoTo(callbackSuccess, callbackFail) {
       var cnt = 0;
       for (var i=0 ; i<lines.length ; i++) {
         if (checkFormat(lines[i])) {
-          filenames.push(lines[i].split(' ')[0]);
-          console.log(filenames[cnt]);
+          filenames.push(lines[i].split(' ')[0].trim());    // add trim to avoid weird spaces
           cnt += 1;
         }
       }
@@ -68,32 +74,74 @@ function sortByDate() {;}   // will implement later
 
 // write bullets for post lists (latest posts, archive)
 function writeBullet(filename, bullet) {
-  var path='posts/'+filename;          //
-  console.log("requesting:",path); //
+  var path='posts/'+filename;
   $.ajax({
     url: 'posts/'+filename,
     success: function(data) {
-      console.log('here i should display stuff');
-      console.log(data);
-      var title = 'untitled';
-      var elems_f = filename.split('-');
-      var date = elems_f[0]+'-'+elems_f[1]+'-'+elems_f[2];
-      var header = data.split('---')[1].split('\n');
-      console.log(header);
-      for (var i=0 ; i<header.length ; i++) {
-        var elems_h = header[i].split(':');
-        if (elems_h[0]==="title") {
-          title = date+'\xa0\xa0'+elems_h[1];
-        }
-      }
-      var bullet_txt = document.createTextNode(title);
-      bullet.appendChild(bullet_txt);
-      // add link to blog post
-      // eventually split into two html elements (date, title) in the bullet
+      date = getPostDate(filename);
+      title = getPostTitle(data);
+      // [!] split returns EMPTY string if spacer at beginning/end or inbetween two spacers
+      var bullet_txtNode_date = document.createTextNode(date+'\xa0\xa0\xa0\xa0');
+      var bullet_link = document.createElement('a');
+      var bullet_link_txtNode = document.createTextNode(title);
+      bullet_link.href = 'posts/'+filename.split('.')[0]+'.html';
+      bullet_link.appendChild(bullet_link_txtNode);
+      bullet.appendChild(bullet_txtNode_date);  // date
+      bullet.appendChild(bullet_link);      // link
+      bullet.appendChild(bullet_link);
     },
     error: function() {
-      var bullet_txt = document.createTextNode("Failed to load post information");   // it works ! now extract title from data
-      bullet.appendChild(bullet_txt);
+      var bullet_txtNode = document.createTextNode("Failed to load post information");
+      bullet.appendChild(bullet_txtNode);
     }
   });
+}
+
+// extracts title from all post data
+function getPostTitle(data) {
+  var title = "untitled";
+  var data_split = data.split('---');
+  if (data_split.length<3) { return title;}  // check if there was a header (i.e. []---[]---[])
+  var header_lines = data_split[1].split('\n');
+  for (var i=0 ; i<header_lines.length ; i++) {
+    header_lines[i] = header_lines[i].trim(); // remove weird space
+    var elems = header_lines[i].split(':');
+    if (elems.length<2) { continue; }
+    if (elems[0]==="title") {
+      elems_2 = elems[1].split(' '); //removes spaces (only at beginning) --> end too ?
+      for (var j=0 ; j<elems_2.length ; j++) {
+        if (elems_2[j]!=="") {
+          title="";
+          for (k=j ; k<elems_2.length ; k++) {
+            title = title+elems_2[k]+' ';
+          }
+          break;
+        }
+      }
+    }
+  }
+  return title;
+}
+
+function getPostDate(filename) {
+  var elems_f = filename.split('-');
+  var date = elems_f[0]+'-'+elems_f[1]+'-'+elems_f[2];
+  return date;
+}
+
+function extractTag(text) { // for example get title: _____
+  ;
+}
+
+
+function getPostBody(data) {
+  var body = '';
+  var data_split = data.split('---');
+  if (data_split.length<3) {  // check if there was a header (i.e. []---[]---[])
+    return data;
+  }
+  else {
+    return data_split[2];
+  }
+  return body;
 }

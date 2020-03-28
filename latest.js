@@ -7,8 +7,8 @@ function generateLatest(filenames) {
   console.log('nbr_posts:',filenames.length);
   if (nbr_posts==0) {
     var empty_p = document.createElement('p');
-    var empty_txt = document.createTextNode("This blog currently has no posts.");
-    empty_p.appendChild(empty_txt);
+    var empty_txtNode = document.createTextNode("This blog currently has no posts.");
+    empty_p.appendChild(empty_txtNode);
     document.getElementById('latest_display').appendChild(empty_p);
     return;
   }
@@ -31,8 +31,8 @@ function generateLatest(filenames) {
 
 function generateLatestFail() {
   var error_p = document.createElement('p');
-  var error_txt = document.createTextNode("Error loading content. Try refreshing the page.");
-  error_p.appendChild(error_txt);
+  var error_txtNode = document.createTextNode("Error loading content. Try refreshing the page.");
+  error_p.appendChild(error_txtNode);
   document.getElementById('latest_display').appendChild(error_p);
   return;
 }
