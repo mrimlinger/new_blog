@@ -1,7 +1,6 @@
----
+
 title: Blogpost n°4
-author: Matthieu Rimlinger
----
+
 
 ## Hello
 
