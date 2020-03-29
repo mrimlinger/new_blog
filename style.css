@@ -1,5 +1,8 @@
+.sans { font-family: 'Open Sans',sans-serif;}
+
 body {
   margin-left: 20%;
+  font-family: Helvetica,'Open Sans', sans-serif;
 }
 
 @media screen and (max-width: 600px) { 
