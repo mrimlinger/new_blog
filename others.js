@@ -79,7 +79,7 @@ function writeBullet(filename, bullet) {
     url: 'posts/'+filename,
     success: function(data) {
       date = getPostDate(filename);
-      title = getPostTitle(data);
+      title = getTitle(data);
       // [!] split returns EMPTY string if spacer at beginning/end or inbetween two spacers
       var bullet_txtNode_date = document.createTextNode(date+'\xa0\xa0\xa0\xa0');
       var bullet_link = document.createElement('a');
@@ -98,7 +98,7 @@ function writeBullet(filename, bullet) {
 }
 
 // extracts title from all post data
-function getPostTitle(data) {
+function getTitle(data) {
   var title = "untitled";
   var data_split = data.split('---');
   if (data_split.length<3) { return title;}  // check if there was a header (i.e. []---[]---[])
@@ -121,6 +121,32 @@ function getPostTitle(data) {
     }
   }
   return title;
+}
+
+// meant to replace fonction above
+// extracts parameter from format
+// ---
+// param_name: param_value
+// ---
+function getParam(data, param_name, param_default) {
+  var data_split = data.split('---');
+  if (data_split.length<3) { return param_default;}  // check if there was a header (i.e. []---[]---[])
+  var header_lines = data_split[1].split('\n');
+  for (var i=0 ; i<header_lines.length ; i++) {
+    header_lines[i] = header_lines[i].trim(); // remove weird space
+    var elems = header_lines[i].split(':'); 
+    if (elems.length<2) { continue; } // check if there was a ':'
+    if (elems[0]===param_name) {
+      // reconstruct string after the first ':' to reinclude possibles ':'
+      var param = elems[1];
+      for (var j=2 ; j<elems.length ; j++) {
+        var param = param+":"+elems[j]; 
+      }
+      param = param.trim();
+      if (param === "") { return param_default; }
+    }
+  }
+  return param;
 }
 
 function getPostDate(filename) {
