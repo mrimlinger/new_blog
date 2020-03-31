@@ -2,6 +2,7 @@ body {
   position: relative;
   margin-left: 2%;
   margin-right: 2%;
+  min-height: 100vh;
   font-family: Helvetica,'Open Sans', sans-serif;
   border-style: solid;
   border-width: 1px;
@@ -44,10 +45,12 @@ header {
   margin: 0.5%;
   padding: 0.5%;
   width: 75%;
+  max-height: 500px;
   right: 0%;
   border-style: solid;
   border-width: 1px;
   border-color: black;
+
 }
 
 #pic {        /* how to center an image */ 
@@ -55,7 +58,7 @@ header {
   margin-left: auto;
   margin-right: auto;
   max-width: 80%;
-  max-height: 600px;
+  max-height: 400px;
 }
 
 #arrows {
@@ -84,9 +87,11 @@ header {
 }
 
 footer {
+  position: absolute;
+  bottom: 0;
   margin: 0.5%;
+  width: 99%;
   border-style: solid;
   border-width: 1px;
   border-color: black;
-  bottom: 0%;
 }
