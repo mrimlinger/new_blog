@@ -7,8 +7,8 @@ header {
 
 body {
   position: relative;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 2%;
+  margin-right: 2%;
   font-family: Helvetica,'Open Sans', sans-serif;
   border-style: solid;
   border-width: 1px;
@@ -17,7 +17,7 @@ body {
 
 @media screen and (max-width: 600px) { 
   body {
-    margin-left: 1%;
+    
   }
 }
 
@@ -42,7 +42,6 @@ body {
 }
 
 #pic_display {
-  position: relative;
   float: right;
   margin: 0.5%;
   padding: 0.5%;
@@ -54,9 +53,10 @@ body {
 }
 
 #pic {
-  max-width: 80%;
-  max-height: 500px;
+  width: 80%;
   
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 footer {
