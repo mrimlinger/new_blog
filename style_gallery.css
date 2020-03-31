@@ -33,11 +33,33 @@ header {
 #album_display {
   float: left;
   width: 20%;
-  height: 200px;
   margin: 0.5%;
   border-style: solid;
   border-width: 1px;
   border-color: black;
+}
+
+ul { /* whole list */
+  border-style: none;
+  border-width: 1px;
+  border-color: black;
+  list-style-type: none; /* no bullets */
+  /*margin: 0; /* above and below the list */
+  padding-left: 20px; 
+  padding-top: 0; 
+  padding-bottom: 0;
+  padding-right: 0;
+}
+
+li { /* list elements, by default no padding no margin */
+  border-style: none;
+  border-width: 1px;
+  border-color: black;
+  width: 200px;
+}
+
+a, a:hover, a:active, a:visited, a:focus {
+  text-decoration:none;
 }
 
 #pic_display {
@@ -45,7 +67,6 @@ header {
   margin: 0.5%;
   padding: 0.5%;
   width: 75%;
-  max-height: 500px;
   right: 0%;
   border-style: solid;
   border-width: 1px;
@@ -58,7 +79,7 @@ header {
   margin-left: auto;
   margin-right: auto;
   max-width: 80%;
-  max-height: 400px;
+  max-height: 65vh;
 }
 
 #arrows {
@@ -88,8 +109,8 @@ header {
 
 footer {
   position: absolute;
-  bottom: 0;
-  margin: 0.5%;
+  bottom: 0%;
+  margin-top: auto;
   width: 99%;
   border-style: solid;
   border-width: 1px;
