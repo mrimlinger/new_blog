@@ -67,6 +67,8 @@ function generateGallery() {
   // display appropriate pic in photo frame
   setPic();
   // display left right arrows
+  var arrows = document.createElement('div'); 
+  arrows.id = "arrows";
   var next = document.createElement('button');
   var prev = document.createElement('button');
   var next_txtNode = document.createTextNode("Next");
@@ -75,8 +77,9 @@ function generateGallery() {
   prev.appendChild(prev_txtNode);
   next.setAttribute('onclick','nextPic();','id','next_b');
   prev.setAttribute('onclick','prevPic();','id','prev_b');
-  pic_display.appendChild(prev);
-  pic_display.appendChild(next);
+  arrows.appendChild(prev);
+  arrows.appendChild(next);
+  pic_display.appendChild(arrows)
 }
 
 function generateGalleryFail() {

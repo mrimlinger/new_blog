@@ -1,0 +1,67 @@
+header {
+  margin: 0.5%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+body {
+  position: relative;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-family: Helvetica,'Open Sans', sans-serif;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+@media screen and (max-width: 600px) { 
+  body {
+    margin-left: 1%;
+  }
+}
+
+
+#gallery_display {
+  height: auto;
+  overflow: hidden;
+  margin: 0.5%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+#album_display {
+  float: left;
+  width: 20%;
+  height: 200px;
+  margin: 0.5%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+#pic_display {
+  position: relative;
+  float: right;
+  margin: 0.5%;
+  padding: 0.5%;
+  width: 75%;
+  right: 0%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+#pic {
+  max-width: 80%;
+  max-height: 500px;
+  
+}
+
+footer {
+  margin: 0.5%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
