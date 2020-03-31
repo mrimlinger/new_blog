@@ -1,15 +1,16 @@
-
-
 ---
-title: 003 Title3
-acronym:
-link: https://photos.app.goo.gl/ThPQM74hX2VZQpvdA
+title: 003 C
+acronym: album3
+path: https://photos.app.goo.gl/ThPQM74hX2VZQpvdA
+nbr_pics: 3
 ---
-title: 002 Title2
-acronym:
-link: https://photos.app.goo.gl/ThPQM74hX2VZQpvdA
+title: 002 B
+acronym: album2
+path: https://photos.app.goo.gl/ThPQM74hX2VZQpvdA
+nbr_pics: 3
 ---
-title: 001 Title1
-acronym:
-link: https://photos.app.goo.gl/ThPQM74hX2VZQpvdA
+title: 001 A
+acronym: album1
+path: https://photos.app.goo.gl/ThPQM74hX2VZQpvdA
+nbr_pics: 3
 ---

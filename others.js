@@ -45,15 +45,16 @@ function checkFormat(line) {
   if (elems[0].length==4 
       && elems[1].length==2
       && elems[2].length==2
-      && isInt(elems[0])
-      && isInt(elems[1])
-      && isInt(elems[2])) {
+      && isStrInt(elems[0])
+      && isStrInt(elems[1])
+      && isStrInt(elems[2])) {
     return true;
   }
   return false;
 }
-function isInt(elem) {
+function isStrInt(elem) { // may want to use parseInt
   var result = false;
+  if (elem.length==0) { return false; }
   for (var i=0 ; i<elem.length ; i++) {
     result = false;
     for (var j=0 ; j<10 ; j++) {

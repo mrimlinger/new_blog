@@ -35,12 +35,29 @@
     </footer>
   </body>
 
+
   <script>
     $(document).ready();
+    // global variable 
+    // - meant to be filled [nbr, titles, acronyms, links, curr_album]
+    // - if data.length = 0 means 
+    /*
+    var global = new Array();
+    global[0] = -1; // means unloaded, 0 means loaded but empty
+    global[4] = 0;
+    */
+    var global = new AlbumIndex();
+    // page generation
     generateYear("year");
     //giveIndexFromTo("gallery/gallery_index.txt", checkFormatGallery, 
     //                generateGallery, generateGalleryFail);
     giveGalleryInfoTo(generateGallery, generateGalleryFail);
+
+
+    // function to execute on hash change
+    window.onhashchange = setPic;
+    // keep previous hash in memory with events ?
+    
   </script>
 
 </html>

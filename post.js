@@ -44,7 +44,7 @@ function generatePrevNext(filenames) {
       if (i>0) {
         // create next button
         var next_p = document.createElement('p');
-        var next_a = document.createElement('a'); 
+        var next_a = document.createElement('a');
         var link_txtNode = document.createTextNode("Next");
         next_a.href = filenames[i-1].split('.')[0]+'.html';
         next_a.appendChild(link_txtNode);
