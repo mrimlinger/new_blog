@@ -54,9 +54,9 @@ function generateGallery() {
     var bullet_a = document.createElement('a');
     var bullet_txtNode = document.createTextNode(global.albums[i].title);
     bullet_a.appendChild(bullet_txtNode);
-    //bullet_a.onclick = "changeHash(global.albums[i], 1);";
     bullet_a.href="#"+global.albums[i].acronym+"/1";
     bullet.appendChild(bullet_a);
+    bullet.id = global.albums[i].acronym;   // to later retrieve and modify bullet of selected album
     album_list.appendChild(bullet);
   }
   album_display.appendChild(album_list);
