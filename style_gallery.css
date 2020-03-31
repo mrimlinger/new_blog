@@ -1,10 +1,3 @@
-header {
-  margin: 0.5%;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-}
-
 body {
   position: relative;
   margin-left: 2%;
@@ -13,12 +6,17 @@ body {
   border-style: solid;
   border-width: 1px;
   border-color: black;
+  margin-bottom: 0%;
+}
+
+header {
+  margin: 0.5%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
 }
 
 @media screen and (max-width: 600px) { 
-  body {
-    
-  }
 }
 
 
@@ -52,11 +50,37 @@ body {
   border-color: black;
 }
 
-#pic {
+#pic {        /* how to center an image */ 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+  max-height: 600px;
+}
+
+#arrows {
   width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* to center content inside */
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  margin-top: 0.5%;
+}
+
+#info {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+#next_b {
   
-  margin-left: 10%;
-  margin-right: 10%;
+}
+
+#prev_b {
+  
 }
 
 footer {
@@ -64,4 +88,5 @@ footer {
   border-style: solid;
   border-width: 1px;
   border-color: black;
+  bottom: 0%;
 }

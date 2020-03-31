@@ -30,24 +30,19 @@
     </div>
 
     <footer>
-      <p><a href="index.html">Home</a>
-         <a href="about.html">About</a>
-         <a href="archive.html">Archive</a></p>
+      <p><a href="index.html">Home</a> - 
+         <a href="about.html">About</a> - 
+         <a href="archive.html">Archive</a> - 
+         <a href="gallery.html">Gallery</a></p>
       <p id="copyright">Copyright © <a id="year"></a> Matthieu Rimlinger</p> 
     </footer>
+
   </body>
 
 
   <script>
     $(document).ready();
-    // global variable 
-    // - meant to be filled [nbr, titles, acronyms, links, curr_album]
-    // - if data.length = 0 means 
-    /*
-    var global = new Array();
-    global[0] = -1; // means unloaded, 0 means loaded but empty
-    global[4] = 0;
-    */
+    // global variable
     var global = new AlbumIndex();
     // page generation
     generateYear("year");
@@ -58,8 +53,8 @@
 
     // function to execute on hash change
     window.onhashchange = setPic;
-    // keep previous hash in memory with events ?
-    
   </script>
+
+
 
 </html>

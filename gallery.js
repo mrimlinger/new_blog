@@ -64,9 +64,7 @@ function generateGallery() {
   var pic_display = document.createElement('div');
   pic_display.id = "pic_display";
   display.appendChild(pic_display);
-  // display appropriate pic in photo frame
-  setPic();
-  // display left right arrows
+  // display left right arrows and info
   var arrows = document.createElement('div'); 
   arrows.id = "arrows";
   var next = document.createElement('button');
@@ -77,9 +75,16 @@ function generateGallery() {
   prev.appendChild(prev_txtNode);
   next.setAttribute('onclick','nextPic();','id','next_b');
   prev.setAttribute('onclick','prevPic();','id','prev_b');
+  var info = document.createElement('a');
+  info.id = "info";
+  var info_txtNode = document.createTextNode("1/1");
+  info.appendChild(info_txtNode);
   arrows.appendChild(prev);
+  arrows.appendChild(info);
   arrows.appendChild(next);
-  pic_display.appendChild(arrows)
+  pic_display.appendChild(arrows);
+  // display appropriate pic in photo frame
+  setPic();
 }
 
 function generateGalleryFail() {
@@ -130,7 +135,7 @@ function setPic() {
     // 
   }
   global.pic_index = pic_index;   // what if image index is too high or negative? -> ADD CHECK
-  // if incorrect acr in url, change it ? No bcs will trigger ecusive call of setPic
+  // if incorrect acr in url, change it ? No bcs will trigger recursive call of setPic
   displayPic();
 }
 
@@ -145,17 +150,19 @@ function displayPic() {
   // pic_index and album_index can only be modified initially and by setPic
   var album_index = global.album_index;
   var acr = global.albums[album_index].acronym;
-  var index = global.pic_index.toString(10);
-  var up = 3-index.length;
+  var index_str = global.pic_index.toString(10);
+  var up = 3-index_str.length;
   for (var i=0 ; i<up ; i++) {
-    index = "0"+index;
+    index_str = "0"+index_str;
   }
   pic = document.createElement('img');
   pic.id = "pic"; // important to later retrieve and delete it
-  pic.src = "gallery/"+acr+"/"+acr+"_"+index+".jpg";
+  pic.src = "gallery/"+acr+"/"+acr+"_"+index_str+".jpg";
   pic.alt = "name";       // give better description
-
   display.insertBefore(pic, display.firstChild); // avoid switching order
+  // update info
+  var info = document.getElementById("info");
+  info.innerHTML = global.pic_index+"/"+global.albums[album_index].nbr_pics;
 }
 
 // just changes the URL under reasonnable conditions
